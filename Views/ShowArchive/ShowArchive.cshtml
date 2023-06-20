@@ -1,0 +1,54 @@
+﻿@using TestApp.Data.Entities;
+@model List<WeatherData>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+</head>
+<body>
+    <div>
+        <table class="table" width="100">
+            <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>Время</th>
+                    <th>Т</th>
+                    <th>Отн.влажность</th>
+                    <th>Td</th>
+                    <th>Давление</th>
+                    <th>Направление</th>
+                    <th>Скорость</th>
+                    <th>Обланость</th>
+                    <th>h</th>
+                    <th>VV</th>
+                    <th>Погодные явления</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var data in Model)
+                {
+                    <tr>
+                        <td>@data.Date.ToShortDateString()</td>
+                        <td>@data.Time.TimeOfDay</td>
+                        <td>@data.TemperatureC</td>
+                        <td>@data.AirHumidity</td>
+                        <td>@data.DewPoint</td>
+                        <td>@data.PressureMmHg</td>
+                        <td>@data.WindDirection</td>
+                        <td>@data.WindSpeed</td>
+                        <td>@data.Cloudy</td>
+                        <td>@data.CloudCover</td>
+                        <td>@data.HorizontalVisibility</td>
+                        <td>@data.WeatherEvents</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+
